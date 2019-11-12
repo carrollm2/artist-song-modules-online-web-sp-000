@@ -8,17 +8,12 @@ module Findable
     #   objects.detect{|a| a.name == name}
     # end
     def find_by_name(name)
-      objects_names = []
-      objects = []
       ObjectSpace.each_object(self) do |obj|
-        if objects_names.include?(obj.name) == false
-          objects_names << obj.name
-          objects << obj
+        if obj.name == name
+          obj
         end
       end
-
-      binding.pry
-      objects.detect{|a| a.name == name}
     end
+
   end
 end
