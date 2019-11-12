@@ -17,7 +17,7 @@ module Findable
         end
       end
 
-      #binding.pry
+      binding.pry
       objects.detect{|a| a.name == name}
     end
   end
